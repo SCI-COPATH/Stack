@@ -1,21 +1,18 @@
 #include <stdio.h>
 #define Max_Size 10
-typedef struct{
-    int key;
-}element;
-element stack[Max_Size];
+int stack[Max_Size];
 int top=-1;
 void push(int item){
     if(top==Max_Size-1)
         printf("Stack Overflow\n");
     else
-        stack[++top].key=item;   
+        stack[++top]=item;   
 }
 void pop(){
     if(top<0)
         printf("Stack underflow\n");
     else
-        printf("%d is delete\n",stack[top--].key);
+        printf("%d is delete\n",stack[--top]);
 }
 void viewStack(){
     int i;
@@ -25,7 +22,7 @@ void viewStack(){
     else{
         printf("\nStack\n");
         for(i=0;i<=top;i++){
-            printf("%d\n",stack[i].key);
+            printf("%d\n",stack[i]);
         }
     }
 }
